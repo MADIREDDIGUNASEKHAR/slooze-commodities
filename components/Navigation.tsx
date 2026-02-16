@@ -13,19 +13,20 @@ export default function Navigation() {
   if (!user) return null;
 
   const navItems = [
-    { 
-      name: 'Dashboard', 
-      path: '/dashboard', 
-      icon: '📊',
-      allowedRoles: ['manager'] as const,
-    },
-    { 
-      name: 'Products', 
-      path: '/products', 
-      icon: '📦',
-      allowedRoles: ['manager', 'storekeeper'] as const,
-    },
-  ];
+  { 
+    name: 'Dashboard', 
+    path: '/dashboard', 
+    icon: '📊',
+    allowedRoles: ['manager'],
+  },
+  { 
+    name: 'Products', 
+    path: '/products', 
+    icon: '📦',
+    allowedRoles: ['manager', 'storekeeper'],
+  },
+];
+
 
   const filteredNavItems = navItems.filter(item => 
     item.allowedRoles.includes(user.role)
